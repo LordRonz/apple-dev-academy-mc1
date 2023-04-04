@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		939E599229D9EE9B00BAD227 /* AddProjectModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E599129D9EE9B00BAD227 /* AddProjectModal.swift */; };
 		939E599429DAC03C00BAD227 /* CreateProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E599329DAC03C00BAD227 /* CreateProjectView.swift */; };
+		939E599629DBDAA500BAD227 /* MindMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E599529DBDAA500BAD227 /* MindMapView.swift */; };
 		93DA6DB029D6B33000DAD2B6 /* GDDeezNutzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA6DAF29D6B33000DAD2B6 /* GDDeezNutzApp.swift */; };
 		93DA6DB229D6B33000DAD2B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA6DB129D6B33000DAD2B6 /* ContentView.swift */; };
 		93DA6DB429D6B33100DAD2B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DA6DB329D6B33100DAD2B6 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		939E599129D9EE9B00BAD227 /* AddProjectModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectModal.swift; sourceTree = "<group>"; };
 		939E599329DAC03C00BAD227 /* CreateProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectView.swift; sourceTree = "<group>"; };
+		939E599529DBDAA500BAD227 /* MindMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindMapView.swift; sourceTree = "<group>"; };
 		93DA6DAC29D6B33000DAD2B6 /* GDDeezNutz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDDeezNutz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DA6DAF29D6B33000DAD2B6 /* GDDeezNutzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDDeezNutzApp.swift; sourceTree = "<group>"; };
 		93DA6DB129D6B33000DAD2B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			children = (
 				93DA6DAF29D6B33000DAD2B6 /* GDDeezNutzApp.swift */,
 				93DA6DB129D6B33000DAD2B6 /* ContentView.swift */,
+				939E599529DBDAA500BAD227 /* MindMapView.swift */,
 				93DA6DC429D6D86700DAD2B6 /* WhatsNext.swift */,
 				93DA6DBF29D6C00500DAD2B6 /* HomeCardsView.swift */,
 				93DA6DC129D6C08300DAD2B6 /* Models */,
@@ -169,6 +172,7 @@
 				93DA6DC329D6C0C000DAD2B6 /* Projects.swift in Sources */,
 				939E599229D9EE9B00BAD227 /* AddProjectModal.swift in Sources */,
 				93DA6DB029D6B33000DAD2B6 /* GDDeezNutzApp.swift in Sources */,
+				939E599629DBDAA500BAD227 /* MindMapView.swift in Sources */,
 				93DA6DC529D6D86700DAD2B6 /* WhatsNext.swift in Sources */,
 				93DA6DC029D6C00500DAD2B6 /* HomeCardsView.swift in Sources */,
 			);
@@ -299,6 +303,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GDDeezNutz/Preview Content\"";
+				DEVELOPMENT_TEAM = J8A42WJ9LX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -327,6 +332,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GDDeezNutz/Preview Content\"";
+				DEVELOPMENT_TEAM = J8A42WJ9LX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

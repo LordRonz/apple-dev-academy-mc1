@@ -14,46 +14,78 @@ struct ContentView: View {
     @State private var showingDeleteAlert = false
 
     var body: some View {
-        NavigationView {
-            VStack {
-                List {
-                    ForEach(filteredProjects) { p in HomeCardsView(projects: p).frame(width: .infinity).listRowInsets(EdgeInsets())
-                        .alert(isPresented: self.$showingDeleteAlert) {
-                            Alert(title: Text("..."), message: Text("..."), primaryButton: .destructive(Text("Delete")) {
-//                                                for index in self.toBeDeleted {
-//                                                    let item = data[index]
-//                                                    viewContext.delete(item)
-//                                                    do {
-//                                                        try viewContext.save()
-//                                                    } catch let error {
-//                                                        print("Error: \(error)")
-//                                                    }
-//                                                }
-                                self.toBeDeleted = nil
-                            }, secondaryButton: .cancel {
-                                self.toBeDeleted = nil
-                            })
+        if (projs.isEmpty) {
+            NavigationView {
+                VStack {
+                    List {
+                        ForEach(filteredProjects) { p in HomeCardsView(projects: p).frame(width: .infinity).listRowInsets(EdgeInsets())
+                            .alert(isPresented: self.$showingDeleteAlert) {
+                                Alert(title: Text("Delete Confirmation"), message: Text("Are you sure to delete \(p.title)"), primaryButton: .destructive(Text("Delete")) {
+                                    for index in self.toBeDeleted ?? [] {
+                                        projs.remove(at: index)
+                                    }
+                                    self.toBeDeleted = nil
+                                }, secondaryButton: .cancel {
+                                    self.toBeDeleted = nil
+                                })
+                            }
                         }
+                        .onDelete(perform: delete)
                     }
-                    .onDelete(perform: delete)
+                    .scrollContentBackground(.hidden)
+                    .overlay(Group {
+                        if filteredProjects.isEmpty {
+                            Text("No Project Found")
+                        }
+                    })
+                    Spacer()
                 }
-                .scrollContentBackground(.hidden)
-                .overlay(Group {
-                    if filteredProjects.isEmpty {
-                        Text("No Project Found")
+                .navigationTitle("Projects")
+                .toolbar {
+                    ToolbarItem {
+                        MainHeaderView()
                     }
-                })
-                Spacer()
-            }
-            .navigationTitle("Projects")
-            .toolbar {
-                ToolbarItem {
-                    MainHeaderView()
                 }
             }
+            .autocorrectionDisabled(true)
+            .onAppear(perform: runSearch)
+        } else {
+            NavigationView {
+                VStack {
+                    List {
+                        ForEach(filteredProjects) { p in HomeCardsView(projects: p).frame(width: .infinity).listRowInsets(EdgeInsets())
+                            .alert(isPresented: self.$showingDeleteAlert) {
+                                Alert(title: Text("Delete Confirmation"), message: Text("Are you sure to delete \(p.title)"), primaryButton: .destructive(Text("Delete")) {
+                                    for index in self.toBeDeleted ?? [] {
+                                        projs.remove(at: index)
+                                    }
+                                    self.toBeDeleted = nil
+                                }, secondaryButton: .cancel {
+                                    self.toBeDeleted = nil
+                                })
+                            }
+                        }
+                        .onDelete(perform: delete)
+                    }
+                    .scrollContentBackground(.hidden)
+                    .overlay(Group {
+                        if filteredProjects.isEmpty {
+                            Text("No Project Found")
+                        }
+                    })
+                    Spacer()
+                }
+                .navigationTitle("Projects")
+                .toolbar {
+                    ToolbarItem {
+                        MainHeaderView()
+                    }
+                }
+            }
+            .searchable(text: $searchText)
+            .autocorrectionDisabled(true)
+            .onAppear(perform: runSearch)
         }
-        .searchable(text: $searchText)
-        .onAppear(perform: runSearch)
     }
 
     func delete(at offsets: IndexSet) {
