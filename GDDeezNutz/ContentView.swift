@@ -8,14 +8,71 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var searchText = ""
+    @State private var projs = [Projects]()
+    @State private var toBeDeleted: IndexSet?
+    @State private var showingDeleteAlert = false
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                List {
+                    ForEach(filteredProjects) { p in HomeCardsView(projects: p).frame(width: .infinity).listRowInsets(EdgeInsets())
+                        .alert(isPresented: self.$showingDeleteAlert) {
+                            Alert(title: Text("..."), message: Text("..."), primaryButton: .destructive(Text("Delete")) {
+//                                                for index in self.toBeDeleted {
+//                                                    let item = data[index]
+//                                                    viewContext.delete(item)
+//                                                    do {
+//                                                        try viewContext.save()
+//                                                    } catch let error {
+//                                                        print("Error: \(error)")
+//                                                    }
+//                                                }
+                                self.toBeDeleted = nil
+                            }, secondaryButton: .cancel {
+                                self.toBeDeleted = nil
+                            })
+                        }
+                    }
+                    .onDelete(perform: delete)
+                }
+                .scrollContentBackground(.hidden)
+                .overlay(Group {
+                    if filteredProjects.isEmpty {
+                        Text("No Project Found")
+                    }
+                })
+                Spacer()
+            }
+            .navigationTitle("Projects")
+            .toolbar {
+                ToolbarItem {
+                    MainHeaderView()
+                }
+            }
         }
-        .padding()
+        .searchable(text: $searchText)
+        .onAppear(perform: runSearch)
+    }
+
+    func delete(at offsets: IndexSet) {
+        toBeDeleted = offsets // store rows for delete
+        showingDeleteAlert = true
+    }
+
+    var filteredProjects: [Projects] {
+        if searchText.isEmpty {
+            return projs
+        } else {
+            return projs.filter { $0.title.localizedCaseInsensitiveContains(searchText) || $0.description.localizedCaseInsensitiveContains(searchText) }
+        }
+    }
+
+    func runSearch() {
+        Task {
+            projs = Projects.sampleData
+        }
     }
 }
 

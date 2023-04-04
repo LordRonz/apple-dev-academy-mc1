@@ -1,0 +1,32 @@
+//
+//  CreateProjectView.swift
+//  GDDeezNutz
+//
+//  Created by Aaron Christopher Tanhar on 03/04/23.
+//
+
+import SwiftUI
+
+struct CreateProjectView: View {
+    @State private var projectName = ""
+    var body: some View {
+        NavigationView {
+            VStack {
+                HStack {
+                    TextField(text: $projectName, prompt: Text("Project Name")) {
+                        Text("Project Name")
+                    }.disableAutocorrection(true)
+                        .border(.secondary)
+                }.textFieldStyle(.roundedBorder)
+                Button("Create", action: {print("Yo")}).buttonStyle(.borderedProminent)
+            }.padding()
+                .navigationTitle("Create Project")
+        }
+    }
+}
+
+struct CreateProjectView_Previews: PreviewProvider {
+    static var previews: some View {
+        CreateProjectView()
+    }
+}

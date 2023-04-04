@@ -7,18 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		939E599229D9EE9B00BAD227 /* AddProjectModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E599129D9EE9B00BAD227 /* AddProjectModal.swift */; };
+		939E599429DAC03C00BAD227 /* CreateProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E599329DAC03C00BAD227 /* CreateProjectView.swift */; };
 		93DA6DB029D6B33000DAD2B6 /* GDDeezNutzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA6DAF29D6B33000DAD2B6 /* GDDeezNutzApp.swift */; };
 		93DA6DB229D6B33000DAD2B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA6DB129D6B33000DAD2B6 /* ContentView.swift */; };
 		93DA6DB429D6B33100DAD2B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DA6DB329D6B33100DAD2B6 /* Assets.xcassets */; };
 		93DA6DB729D6B33100DAD2B6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DA6DB629D6B33100DAD2B6 /* Preview Assets.xcassets */; };
+		93DA6DBE29D6B8F400DAD2B6 /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA6DBD29D6B8F400DAD2B6 /* MainHeaderView.swift */; };
+		93DA6DC029D6C00500DAD2B6 /* HomeCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA6DBF29D6C00500DAD2B6 /* HomeCardsView.swift */; };
+		93DA6DC329D6C0C000DAD2B6 /* Projects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA6DC229D6C0C000DAD2B6 /* Projects.swift */; };
+		93DA6DC529D6D86700DAD2B6 /* WhatsNext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA6DC429D6D86700DAD2B6 /* WhatsNext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		939E599129D9EE9B00BAD227 /* AddProjectModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProjectModal.swift; sourceTree = "<group>"; };
+		939E599329DAC03C00BAD227 /* CreateProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProjectView.swift; sourceTree = "<group>"; };
 		93DA6DAC29D6B33000DAD2B6 /* GDDeezNutz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDDeezNutz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DA6DAF29D6B33000DAD2B6 /* GDDeezNutzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDDeezNutzApp.swift; sourceTree = "<group>"; };
 		93DA6DB129D6B33000DAD2B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		93DA6DB329D6B33100DAD2B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93DA6DB629D6B33100DAD2B6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		93DA6DBD29D6B8F400DAD2B6 /* MainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
+		93DA6DBF29D6C00500DAD2B6 /* HomeCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardsView.swift; sourceTree = "<group>"; };
+		93DA6DC229D6C0C000DAD2B6 /* Projects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Projects.swift; sourceTree = "<group>"; };
+		93DA6DC429D6D86700DAD2B6 /* WhatsNext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNext.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +65,14 @@
 			children = (
 				93DA6DAF29D6B33000DAD2B6 /* GDDeezNutzApp.swift */,
 				93DA6DB129D6B33000DAD2B6 /* ContentView.swift */,
+				93DA6DC429D6D86700DAD2B6 /* WhatsNext.swift */,
+				93DA6DBF29D6C00500DAD2B6 /* HomeCardsView.swift */,
+				93DA6DC129D6C08300DAD2B6 /* Models */,
 				93DA6DB329D6B33100DAD2B6 /* Assets.xcassets */,
 				93DA6DB529D6B33100DAD2B6 /* Preview Content */,
+				93DA6DBD29D6B8F400DAD2B6 /* MainHeaderView.swift */,
+				939E599129D9EE9B00BAD227 /* AddProjectModal.swift */,
+				939E599329DAC03C00BAD227 /* CreateProjectView.swift */,
 			);
 			path = GDDeezNutz;
 			sourceTree = "<group>";
@@ -65,6 +83,14 @@
 				93DA6DB629D6B33100DAD2B6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		93DA6DC129D6C08300DAD2B6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				93DA6DC229D6C0C000DAD2B6 /* Projects.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +163,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				939E599429DAC03C00BAD227 /* CreateProjectView.swift in Sources */,
 				93DA6DB229D6B33000DAD2B6 /* ContentView.swift in Sources */,
+				93DA6DBE29D6B8F400DAD2B6 /* MainHeaderView.swift in Sources */,
+				93DA6DC329D6C0C000DAD2B6 /* Projects.swift in Sources */,
+				939E599229D9EE9B00BAD227 /* AddProjectModal.swift in Sources */,
 				93DA6DB029D6B33000DAD2B6 /* GDDeezNutzApp.swift in Sources */,
+				93DA6DC529D6D86700DAD2B6 /* WhatsNext.swift in Sources */,
+				93DA6DC029D6C00500DAD2B6 /* HomeCardsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
