@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var searchText = ""
-    @State private var projs = [Projects]()
+    @State private var projs = Projects.sampleData
     @State private var toBeDeleted: IndexSet?
     @State private var showingDeleteAlert = false
 
     var body: some View {
-        if (projs.isEmpty) {
+        if projs.isEmpty {
             NavigationView {
                 VStack {
                     List {
@@ -48,7 +48,6 @@ struct ContentView: View {
                 }
             }
             .autocorrectionDisabled(true)
-            .onAppear(perform: runSearch)
         } else {
             NavigationView {
                 VStack {
@@ -63,7 +62,7 @@ struct ContentView: View {
                                 }, secondaryButton: .cancel {
                                     self.toBeDeleted = nil
                                 })
-                            }
+                            }.padding(.bottom, 10)
                         }
                         .onDelete(perform: delete)
                     }
@@ -84,7 +83,6 @@ struct ContentView: View {
             }
             .searchable(text: $searchText)
             .autocorrectionDisabled(true)
-            .onAppear(perform: runSearch)
         }
     }
 

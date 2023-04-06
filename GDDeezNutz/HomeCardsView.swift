@@ -21,7 +21,7 @@ struct HomeCardsView: View {
                 Text(projects.description)
             }.padding(.trailing)
             Spacer()
-        }.border(.gray).frame(maxWidth: .infinity)
+        }.border(.gray).cornerRadius(20)
     }
 }
 

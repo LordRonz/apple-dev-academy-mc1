@@ -18,10 +18,10 @@ struct CreateProjectView: View {
                 }.disableAutocorrection(true)
                     .border(.secondary)
             }.textFieldStyle(.roundedBorder)
-            Button("Create", action: { selection = 1 }).buttonStyle(.borderedProminent)
+            Button("Create", action: { selection = 2 }).buttonStyle(.borderedProminent)
         }.padding()
             .navigationTitle("Create Project")
-        NavigationLink(destination: MindMapView(), tag: 1, selection: $selection) { EmptyView() }
+        NavigationLink(destination: MindMapView(projectName: projectName), tag: 2, selection: $selection) { EmptyView() }
     }
 }
 

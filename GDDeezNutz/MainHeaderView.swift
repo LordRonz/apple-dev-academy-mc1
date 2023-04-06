@@ -12,7 +12,7 @@ struct MainHeaderView: View {
     var body: some View {
         HStack {
             HStack(spacing: 20) {
-                NavigationLink(destination: MindMapView(), tag: 1, selection: $selection) { EmptyView() }
+                NavigationLink(destination: CreateProjectView(), tag: 1, selection: $selection) { EmptyView() }
                 Button(action: { selection = 1 }) {
                     Image(systemName: "plus")
                 }
