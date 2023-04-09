@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeCardsView: View {
+    @State var selection: Int? = nil
     let projects: Projects
     var body: some View {
         HStack {
@@ -20,8 +21,11 @@ struct HomeCardsView: View {
                 Text(projects.title).fontWeight(.bold).font(.title2)
                 Text(projects.description)
             }.padding(.trailing)
+            NavigationLink(destination: MindMapView(projectName: projects.title), tag: 2, selection: $selection) { EmptyView() }.hidden().frame(width: 0, height: 0)
             Spacer()
-        }.border(.gray).cornerRadius(20)
+        }.border(.gray).cornerRadius(20).onTapGesture {
+            selection = 2
+        }
     }
 }
 

@@ -15,6 +15,9 @@
 		939E599E29DD802A00BAD227 /* Sketcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E599D29DD802A00BAD227 /* Sketcher.swift */; };
 		939E59A029DDF95700BAD227 /* BrainstormingBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E599F29DDF95700BAD227 /* BrainstormingBoard.swift */; };
 		939E59A329DDFB2D00BAD227 /* MarkupEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 939E59A229DDFB2D00BAD227 /* MarkupEditor */; };
+		939E59A529DEC2D600BAD227 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E59A429DEC2D600BAD227 /* ChecklistView.swift */; };
+		939E59A729DEC3FA00BAD227 /* MindMapItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939E59A629DEC3FA00BAD227 /* MindMapItemRow.swift */; };
+		93C7926F29DFDB81000E2DAF /* GDDExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C7926E29DFDB81000E2DAF /* GDDExample.swift */; };
 		93DA6DB029D6B33000DAD2B6 /* GDDeezNutzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA6DAF29D6B33000DAD2B6 /* GDDeezNutzApp.swift */; };
 		93DA6DB229D6B33000DAD2B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA6DB129D6B33000DAD2B6 /* ContentView.swift */; };
 		93DA6DB429D6B33100DAD2B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DA6DB329D6B33100DAD2B6 /* Assets.xcassets */; };
@@ -33,6 +36,9 @@
 		939E599B29DD7FCD00BAD227 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		939E599D29DD802A00BAD227 /* Sketcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sketcher.swift; sourceTree = "<group>"; };
 		939E599F29DDF95700BAD227 /* BrainstormingBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainstormingBoard.swift; sourceTree = "<group>"; };
+		939E59A429DEC2D600BAD227 /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
+		939E59A629DEC3FA00BAD227 /* MindMapItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindMapItemRow.swift; sourceTree = "<group>"; };
+		93C7926E29DFDB81000E2DAF /* GDDExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDDExample.swift; sourceTree = "<group>"; };
 		93DA6DAC29D6B33000DAD2B6 /* GDDeezNutz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GDDeezNutz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DA6DAF29D6B33000DAD2B6 /* GDDeezNutzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GDDeezNutzApp.swift; sourceTree = "<group>"; };
 		93DA6DB129D6B33000DAD2B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,6 +83,9 @@
 			children = (
 				93DA6DAF29D6B33000DAD2B6 /* GDDeezNutzApp.swift */,
 				93DA6DB129D6B33000DAD2B6 /* ContentView.swift */,
+				939E59A429DEC2D600BAD227 /* ChecklistView.swift */,
+				93C7926E29DFDB81000E2DAF /* GDDExample.swift */,
+				939E59A629DEC3FA00BAD227 /* MindMapItemRow.swift */,
 				939E599F29DDF95700BAD227 /* BrainstormingBoard.swift */,
 				939E599729DD7F6B00BAD227 /* Constants.swift */,
 				939E599B29DD7FCD00BAD227 /* ColorPickerView.swift */,
@@ -186,11 +195,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				939E59A729DEC3FA00BAD227 /* MindMapItemRow.swift in Sources */,
 				939E599429DAC03C00BAD227 /* CreateProjectView.swift in Sources */,
 				93DA6DB229D6B33000DAD2B6 /* ContentView.swift in Sources */,
 				939E599E29DD802A00BAD227 /* Sketcher.swift in Sources */,
 				93DA6DBE29D6B8F400DAD2B6 /* MainHeaderView.swift in Sources */,
 				93DA6DC329D6C0C000DAD2B6 /* Projects.swift in Sources */,
+				93C7926F29DFDB81000E2DAF /* GDDExample.swift in Sources */,
 				939E599229D9EE9B00BAD227 /* AddProjectModal.swift in Sources */,
 				939E599829DD7F6B00BAD227 /* Constants.swift in Sources */,
 				93DA6DB029D6B33000DAD2B6 /* GDDeezNutzApp.swift in Sources */,
@@ -199,6 +210,7 @@
 				93DA6DC529D6D86700DAD2B6 /* WhatsNext.swift in Sources */,
 				93DA6DC029D6C00500DAD2B6 /* HomeCardsView.swift in Sources */,
 				939E59A029DDF95700BAD227 /* BrainstormingBoard.swift in Sources */,
+				939E59A529DEC2D600BAD227 /* ChecklistView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
