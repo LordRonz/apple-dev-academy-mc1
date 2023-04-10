@@ -19,11 +19,11 @@ func adjustLabelFontSizeToFitRect(labelNode: SKLabelNode, rect: CGRect) {
     labelNode.position = CGPoint(x: rect.midX, y: rect.midY - labelNode.frame.height / 2.0)
 }
 
-func makeShape(posX: CGFloat, posY: CGFloat, content: String, width: Int=256, height: Int = 200) -> (SKNode, SKLabelNode) {
+func makeShape(posX: CGFloat, posY: CGFloat, content: String, width: Int = 256, height: Int = 200) -> (SKNode, SKLabelNode) {
     let shape = SKShapeNode()
     let rect = CGRect(x: -128, y: -128, width: width, height: height)
     shape.name = "main_node"
-    shape.path = UIBezierPath(roundedRect: rect, cornerRadius: 64).cgPath
+    shape.path = UIBezierPath(roundedRect: rect, cornerRadius: 48).cgPath
     shape.position = CGPoint(x: posX, y: posY)
     shape.fillColor = UIColor.red
     shape.strokeColor = UIColor.blue
@@ -44,6 +44,7 @@ class GameScene: SKScene {
     var projectName = ""
     var action: (() -> Void)?
     var previousCameraPoint = CGPoint.zero
+    var previousCameraScale = CGFloat()
     @Environment(\.colorScheme) var colorScheme: ColorScheme
 
     override func didMove(to view: SKView) {
@@ -60,23 +61,17 @@ class GameScene: SKScene {
         let shapes = makeShape(posX: frame.midX, posY: frame.midY, content: projectName)
         let shape = shapes.0
         let myLabel = shapes.1
-        
+
         let shapesDefinitions = [
             [frame.midX - 300, frame.midY, "Title", 150, 150] as [Any],
-            [frame.midX + 500, frame.midY, "Story", 150, 150] as [Any]
+            [frame.midX + 500, frame.midY, "Story", 150, 150] as [Any],
+            [frame.midX, frame.midY + 500, "Gameplay", 200, 150] as [Any],
+            [frame.midX, frame.midY - 500, "Target", 150, 150] as [Any],
         ]
-        
+
         var nodesToBeDrawed: [SKNode] = []
         var labelsToBeDrawed: [SKLabelNode] = []
-        
-        let shapes1 = makeShape(posX: frame.midX - 300, posY: frame.midY, content: "Title", width: 150, height: 150)
-        let shape1 = shapes1.0
-        let myLabel1 = shapes1.1
 
-        let shapes2 = makeShape(posX: frame.midX + 500, posY: frame.midY, content: "Story", width: 150, height: 150)
-        let shape2 = shapes2.0
-        let myLabel2 = shapes2.1
-        
         for n in shapesDefinitions {
             let s = makeShape(posX: n[0] as! CGFloat, posY: n[1] as! CGFloat, content: n[2] as! String, width: n[3] as! Int, height: n[4] as! Int)
             nodesToBeDrawed.append(s.0)
@@ -86,12 +81,16 @@ class GameScene: SKScene {
         let panGesture = UIPanGestureRecognizer()
         panGesture.addTarget(self, action: #selector(panGestureAction(_:)))
         view.addGestureRecognizer(panGesture)
-        
+
+        let pinchGesture = UIPinchGestureRecognizer()
+        pinchGesture.addTarget(self, action: #selector(pinchGestureAction(_:)))
+        view.addGestureRecognizer(pinchGesture)
+
         for s in nodesToBeDrawed {
-            var yourline = SKShapeNode()
-            var pathToDraw = CGMutablePath()
+            let yourline = SKShapeNode()
+            let pathToDraw = CGMutablePath()
             pathToDraw.move(to: CGPoint(x: shape.frame.midX, y: shape.frame.midY))
-            pathToDraw.addLine(to: CGPoint(x: s.frame.midX, y: shape.frame.midY))
+            pathToDraw.addLine(to: CGPoint(x: s.frame.midX, y: s.frame.midY))
             yourline.path = pathToDraw
             yourline.strokeColor = SKColor.red
             addChild(yourline)
@@ -123,6 +122,16 @@ class GameScene: SKScene {
             y: previousCameraPoint.y + translation.y
         )
         camera.position = newPosition
+    }
+
+    @objc func pinchGestureAction(_ sender: UIPinchGestureRecognizer) {
+        guard let camera = camera else {
+            return
+        }
+        if sender.state == .began {
+            previousCameraScale = camera.xScale
+        }
+        camera.setScale(previousCameraScale * 1 / sender.scale)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
